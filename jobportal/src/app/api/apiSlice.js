@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { setCredentials } from '../../features/auth/authSlice'
 
 const rawBaseQuery = fetchBaseQuery({
-  baseUrl: 'http://localhost:3500',
+  baseUrl: 'https://jobportalbackend-7krd.onrender.com',
   credentials: 'include', // 👈 ensures refresh cookie (jwt) is sent
   prepareHeaders: (headers, { getState, endpoint }) => {
     const token = getState().auth.token
@@ -52,3 +52,4 @@ export const apiSlice = createApi({
   tagTypes: ['User', 'Job'],
   endpoints: () => ({}),
 })
+

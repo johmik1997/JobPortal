@@ -17,7 +17,7 @@ const Home = () => {
         bgImage={heroBg}
         // showSearch={true} // show the search bar on home
       />
-      <Stats />
+      {/* <Stats /> */}
       <FeaturedCompanies />
       <RecentJobs />
       <Footer />

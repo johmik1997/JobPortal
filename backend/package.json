@@ -1,5 +1,5 @@
 {
-  "name": "mernprojectpractice",
+  "name": "talent-hub",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,8 @@
     "multer": "^2.0.2",
     "multer-storage-cloudinary": "^4.0.0",
     "nodemailer": "^7.0.5",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "uuid": "^11.1.0"
   },
   "devDependencies": {

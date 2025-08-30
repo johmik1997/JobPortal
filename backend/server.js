@@ -1,6 +1,7 @@
 
 require('dotenv').config()
 const express = require('express')
+
 const path = require('path')
 const app = express()
 const {logger}=require('./middleware/logger')
@@ -13,16 +14,17 @@ const cors=require('cors')
 const moongose =require('mongoose')
 const {logEvents}=require('./middleware/logger')
 const { log } = require('console')
+const swaggerUI = require('swagger-ui-express');
+const swaggerSpec = require('./config/swagger');
 connectDb()
 app.use(logger)
-
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 app.use(cors(corsOptions))
 
 app.use(express.json())
 
 app.use(cookieParser())
 
-// Routes
 app.use('/', require('./routers/root'))
 app.use('/api/job', require('./routers/jobFilterRoute'))
 app.use('/auth', require('./routers/authRouter'))
@@ -30,6 +32,7 @@ app.use('/user',require('./routers/userRoute'))
 app.use('/send',require('./routers/contact'))
 app.use('/jobs',require('./routers/jobsRoute'))
 app.use('/applications',require('./routers/applicationRoute'))
+
 
 // Static files
 app.use('/', express.static(path.join(__dirname, 'public')))
@@ -53,6 +56,7 @@ app.use(errorHandler)
 moongose.connection.once('open',()=>{
     console,log("connected to mongoDb")
 app.listen(port, () => console.log("The server is listening on " + port))
+
 
 })
 moongose.connection.on('error',err=>{

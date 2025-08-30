@@ -7,7 +7,7 @@ import useTitle from '../../hooks/useTitle'
 import PulseLoader from 'react-spinners/PulseLoader'
 
 const Register = () => {
-  useTitle('Employee Registration')
+  useTitle('User Registration')
 
   const userRef = useRef()
   const errRef = useRef()

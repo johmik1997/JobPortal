@@ -5,7 +5,7 @@ import useTitle from "../../hooks/useTitle"
 import PulseLoader from 'react-spinners/PulseLoader'
 
 const JobsList = () => {
-    useTitle('techNotes: Jobs List')
+    useTitle('TalentHub: Jobs List')
 
     const { username, isManager, isAdmin } = useAuth()
 

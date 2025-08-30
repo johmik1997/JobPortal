@@ -100,7 +100,6 @@ const totalUsers=activeCount + inactiveCount;
               <thead>
                 <tr className="bg-gray-200 text-left">
                   <th className="px-4 py-2 border">Username</th>
-                  <th className="px-4 py-2 border">Email</th>
                   <th className="px-4 py-2 border">Role</th>
                   <th className="px-4 py-2 border">Status</th>
                   <th className="px-4 py-2 border">Actions</th>
@@ -110,16 +109,10 @@ const totalUsers=activeCount + inactiveCount;
   {users?.map(user => (
     <tr key={user._id} className="hover:bg-gray-100">
       <td className="px-4 py-2 border">{user.username}</td>
-      <td className="px-4 py-2 border">{user.email || "N/A"}</td>
       <td className="px-4 py-2 border">{user.roles?.join(", ") || "N/A"}</td>
       <td className="px-4 py-2 border">{user.activeStatus ? "Active" : "Inactive"}</td>
       <td className="px-4 py-2 border space-x-2">
-        <button
-          onClick={() => handleEdit(user)}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded"
-        >
-          Edit
-        </button>
+      
         <button
           onClick={() => handleDelete(user._id)}
           className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"

@@ -45,7 +45,7 @@ const ApplicationForm = () => {
         portfolio: "",
         coverLetter: "",
       })
-      navigate("/applications") // ✅ redirect to applications page
+      navigate("/dashboard/applicant") // ✅ redirect to applications page
     }
   }, [isSuccess, navigate])
 

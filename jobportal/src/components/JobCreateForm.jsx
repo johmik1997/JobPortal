@@ -131,11 +131,21 @@ const CreateJobForm = () => {
             className="w-full border px-3 py-2 rounded-lg focus:ring focus:ring-indigo-400"
           >
             <option value="">Select category</option>
-            <option value="Engineering">Engineering</option>
-            <option value="Marketing">Marketing</option>
-            <option value="Design">Design</option>
-            <option value="Finance">Finance</option>
-            <option value="IT">IT</option>
+<option value="IT">IT & Software</option>
+<option value="Engineering">Engineering</option>
+<option value="Marketing">Marketing & Sales</option>
+<option value="Design">Design & Creative</option>
+<option value="Finance">Finance & Accounting</option>
+<option value="Healthcare">Healthcare & Medical</option>
+<option value="Education">Education & Training</option>
+<option value="Customer Service">Customer Service</option>
+<option value="Construction">Construction & Real Estate</option>
+<option value="Logistics">Logistics & Supply Chain</option>
+<option value="Hospitality">Hospitality & Tourism</option>
+<option value="Legal">Legal & Compliance</option>
+<option value="Admin">Administration & HR</option>
+<option value="Skilled Trades">Skilled Trades</option>
+
           </select>
         </div>
 

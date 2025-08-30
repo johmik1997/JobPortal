@@ -38,7 +38,22 @@ const JobFilters = ({ filters, setFilters }) => {
       {/* 📂 Category */}
       <div className="mb-6">
         <p className="block text-sm font-medium mb-2">Category</p>
-        {["Commerce", "Telecommunications", "Hotels & Tourism", "Education", "Financial Services"].map((cat) => (
+        {[
+  "IT & Software",
+  "Engineering",
+  "Marketing & Sales",
+  "Design & Creative",
+  "Finance & Accounting",
+  "Healthcare & Medical",
+  "Education & Training",
+  "Customer Service",
+  "Construction & Real Estate",
+  "Logistics & Supply Chain",
+  "Hospitality & Tourism",
+  "Legal & Compliance",
+  "Administration & HR",
+  "Skilled Trades"
+].map((cat) => (
           <label key={cat} className="flex items-center mb-1 text-sm">
             <input
               type="radio"
@@ -67,24 +82,6 @@ const JobFilters = ({ filters, setFilters }) => {
               className="mr-2"
             />
             {type}
-          </label>
-        ))}
-      </div>
-
-      {/* 🎓 Experience */}
-      <div className="mb-6">
-        <p className="block text-sm font-medium mb-2">Experience Level</p>
-        {["No-experience", "Fresher", "Intermediate", "Expert"].map((level) => (
-          <label key={level} className="flex items-center mb-1 text-sm">
-            <input
-              type="radio"
-              name="experience"
-              value={level}
-              checked={filters.experience === level}
-              onChange={handleChange}
-              className="mr-2"
-            />
-            {level}
           </label>
         ))}
       </div>

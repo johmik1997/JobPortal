@@ -1,36 +1,54 @@
 const express = require("express");
-const nodemailer = require("nodemailer");
-
 const router = express.Router();
+const { sendContactMessage } = require("../controller/contactController");
 
-router.post("/contact", async (req, res) => {
-  const { firstName, lastName, email, message } = req.body;
-  if (!firstName || !lastName || !email || !message) {
-    return res.status(400).json({ message: "All fields are required" });
-  }
-
-  try {
-    const transporter = nodemailer.createTransport({
-      host:"smtp.gmail.com",
-      port: 587,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
-    await transporter.sendMail({
-      from: `"${firstName} ${lastName}" <${email}>`,
-      to: "support@talenthub.com",
-      subject: "New Contact Message",
-      text: message,
-    });
-
-    res.status(200).json({ message: "Message sent successfully" });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Failed to send message" });
-  }
-});
+/**
+ * @swagger
+ * /send/contact:
+ *   post:
+ *     summary: Send a contact message
+ *     tags: [Contact]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - firstName
+ *               - lastName
+ *               - email
+ *               - message
+ *             properties:
+ *               firstName:
+ *                 type: string
+ *                 example: John
+ *               lastName:
+ *                 type: string
+ *                 example: Doe
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 example: john.doe@example.com
+ *               message:
+ *                 type: string
+ *                 example: I need help with your platform.
+ *     responses:
+ *       200:
+ *         description: Message sent successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Message sent successfully
+ *       400:
+ *         description: All fields are required
+ *       500:
+ *         description: Failed to send message
+ */
+router.post("/contact", sendContactMessage);
 
 module.exports = router;

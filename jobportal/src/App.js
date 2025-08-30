@@ -17,14 +17,14 @@ import EmployerJobPage from './page/EmployerJobPage'
 import JobForm from './components/JobForm'
 import EmployerDashboard from './page/EmployerDashboard'
 import AdminDashboard from './page/AdminDashboard'
-import UsersList from './features/users/UsersList'
 import EditJobPage from './page/EditJobPage'
 
 function App() {
-  useTitle('Dan D. Repairs')
+  useTitle('TalentHub')
 
   return (
     <Routes>
+      
       {/* Public Routes */}
       <Route path="/" element={<Home />} />
       <Route path="/users" element={<AdminDashboard />} />
@@ -44,37 +44,6 @@ function App() {
       <Route path="/employer/job" element={<EmployerJobPage />} />
       <Route path="/applications/:id" element={<ApplicantDetails />} />
       <Route path="/edit-job/:id" element={<EditJobPage />} />
-
-
-
-      {/* Protected Routes */}
-      {/* <Route element={<PersistLogin />}>
-        <Route
-          element={<RequireAuth allowedRoles={[...Object.values(ROLES)]} />}
-        >
-          <Route element={<Prefetch />}>
-            <Route path="dash" element={<DashLayout />}>
-              <Route index element={<Welcome />} />
-
-              {/* Example of restricting routes by role */}
-              {/* <Route
-                element={
-                  <RequireAuth
-                    allowedRoles={[ROLES.Manager, ROLES.Admin]}
-                  />
-                } */}
-            
-                {/* <Route path="users">
-                  {/* Uncomment these when you add components */}
-                  {/* <Route index element={<UsersList />} />
-                  <Route path=":id" element={<EditUser />} /> */}
-                  {/* <Route path="new" element={<NewUserForm />} /> */}
-                {/* </Route> */} 
-              {/* </Route> */}
-            {/* </Route> */}
-          {/* </Route> */}
-        {/* </Route> */}
-      {/* </Route> */}
     </Routes>
   )
 }
